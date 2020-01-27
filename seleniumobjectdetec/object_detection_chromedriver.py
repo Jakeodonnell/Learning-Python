@@ -9,6 +9,7 @@ from selenium.webdriver.support import wait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import TimeoutException
 
+
 def my_detection(outs):
     print("IN detectiopn")
     class_ids = []
@@ -19,7 +20,7 @@ def my_detection(outs):
             scores = detection[5:]
             class_id = np.argmax(scores)
             confidence = scores[class_id]
-            if confidence > 0.5:
+            if confidence > 0.8:
                 # Object detected
                 center_x = int(detection[0] * width)
                 center_y = int(detection[1] * height)
@@ -50,11 +51,13 @@ def my_detection(outs):
     
     print("cars parked right now " + str(cars_parked))
        
-    
 
 browser = webdriver.Chrome()
-browser.set_window_size(1600, 900)
-browser.get('http://128.197.128.165/view/viewer_index.shtml?id=2770')
+browser.set_window_size(1600, 1100)
+browser.get('https://www.earthcam.com/usa/newyork/timessquare/?cam=tsstreet')
+
+
+
 #fastrack = WebDriverWait(browser, 10).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div[3]/main/article/nav/ul/li[1]/a")));
 #fastrack.click()
 
