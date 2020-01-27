@@ -8,36 +8,16 @@ import os
 video_capture = cv2.VideoCapture(0)
 
 # Load a sample picture and learn how to recognize it.
-robert_image = face_recognition.load_image_file("./img/known/robert.PNG")
-robert_image_encoding = face_recognition.face_encodings(robert_image)[0]
-
-jake_image = face_recognition.load_image_file("./img/known/jake.PNG")
-jake_image_encoding = face_recognition.face_encodings(jake_image)[0]
-
-petter_image = face_recognition.load_image_file("./img/known/petter.PNG")
-petter_image_encoding = face_recognition.face_encodings(petter_image)[0]
-
-anna_image = face_recognition.load_image_file("./img/known/anna.PNG")
-anna_image_encoding = face_recognition.face_encodings(anna_image)[0]
-
-joppe_image = face_recognition.load_image_file("./img/known/joppe.PNG")
-joppe_image_encoding = face_recognition.face_encodings(joppe_image)[0]
+person_image = face_recognition.load_image_file("./img/known/**your_image**.PNG")
+person_image_encoding = face_recognition.face_encodings(person_image)[0]
 
 #known faces:
 known_face_encodings = [
-    robert_image_encoding,
-    jake_image_encoding,
-    petter_image_encoding,
-    anna_image_encoding,
-    joppe_image_encoding
-
+    person_image_encoding
 ]
+
 known_face_names = [
-    "Robert Korpics",
-    "Jake ODonnell",
-    "Petter Andersson",
-    "Anna Swedrup",
-    "Joppe Swedrup"
+    "Name Of person"
 ]
 
 

@@ -56,12 +56,6 @@ browser = webdriver.Chrome()
 browser.set_window_size(1600, 1100)
 browser.get('https://www.earthcam.com/usa/newyork/timessquare/?cam=tsstreet')
 
-
-
-#fastrack = WebDriverWait(browser, 10).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div[3]/main/article/nav/ul/li[1]/a")));
-#fastrack.click()
-
-
 browser.save_screenshot("parking1.png")
 
 # Load Yolo
@@ -73,19 +67,15 @@ layer_names = net.getLayerNames()
 output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
-# Loading image
 while True:
     browser.save_screenshot("parking1.png")
     img = cv2.imread("parking1.png")
     img = cv2.resize(img, None, fx=1, fy=1)
     height, width, channels = img.shape
-
-    # Detecting objects
     blob = cv2.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
 
     net.setInput(blob)
     outs = net.forward(output_layers)
-
     # Showing informations on the screen
     my_detection(outs)
 
