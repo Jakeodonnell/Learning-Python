@@ -1,4 +1,3 @@
-Learning-python
 download chrome driver:
     https://chromedriver.chromium.org/
 put in project directory
